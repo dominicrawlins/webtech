@@ -4,8 +4,7 @@
   "description": "web technologies project",
   "main": "index.js",
   "dependencies": {
-    "knockout": "^3.5.0",
-    "sax": "^1.2.4"
+    "knockout": "^3.5.0"
   },
   "devDependencies": {},
   "scripts": {
