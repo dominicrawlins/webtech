@@ -5,53 +5,37 @@
 <style media="screen">
 
 .title_col{color: navy; text-align: center; font-family: Molengo;}
-.list{font-family:Molengo}
 .teamname{
   background-color: white;
   width:40px;
   height:20px
   font-family Molengo
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
 p {font-family: Molengo;}
 </style>
 
-<head>
+<header>
   <h1 class="title_col">Premier League Statistics and Records</h1>
-</head>
+</header>
 
 <body>
   <div class="title_col">
     <h2> About:</h2>
-  </div><p> Short introduction about the website - may be pointless</p>
-  <div>
-     <h2 class="title_col"> Teams:</h2>
   </div>
-  <div>
-    <div class="teamname" data-bind="event: {mouseover: enableDetals, mouseout:disableDetails}">
+  <p> Short introduction about the website - may be pointless</p>
+  <h2 class="title_col"> Teams:</h2>
+  <div class ="teamname">
+    <div data-bind="event: {mouseover: enableDetals, mouseout:disableDetails}">
       <img src="teambadges/bournm.png" alt="" width="40" height="50"/>
     </div>
-    <div class="list" data-bind="visible: detailsEnabled">AFC Bournmouth</div>
+    <p data-bind="visible: detailsEnabled">AFC Bournmouth</p>
   </div>
-     <!-- <ul class="list">AFC Bournmouth</ul>
-     <ul class="list">Arsenal</ul>
-     <ul class="list">Brighton and Hove Albion</ul>
-     <ul class="list">Burnley</ul>
-     <ul class="list">Cardiff City</ul>
-     <ul class="list">Chelsea</ul>
-     <ul class="list">Crystal Palace</ul>
-     <ul class="list">Everton</ul>
-     <ul class="list">Fulham</ul>
-     <ul class="list">Huddersfield Town</ul>
-     <ul class="list">Leicester</ul>
-     <ul class="list">Liverpool</ul>
-     <ul class="list">Manchester City</ul>
-     <ul class="list">Manchester United</ul>
-     <ul class="list">Newcastle United</ul>
-     <ul class="list">Southampton</ul>
-     <ul class="list">Tottenham Hotspur</ul>
-     <ul class="list">Watford</ul>
-     <ul class="list">West Ham United</ul>
-     <ul class="list">Wolverhmpton Wanderers</ul> -->
+
 </body>
 
 </html>
