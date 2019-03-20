@@ -1,11 +1,17 @@
-requirejs(["libs/knockout"], function(ko){
-  var myViewModel = {
+requirejs(["libs/knockout", "libs/vue.min.js"], function(ko, Vue){
+  var table = new Vue({
+    el: '#playerStatsTable',
+    data: {
       players: [
-        {playerName: 'Dominic', goals: '40'},
-        {playerName: 'Sachin', goals: '0'}
+        {
+          name: 'Dominic',
+          goals: 100,
+        },
+        {
+          name: 'Sachin',
+          goals: 0,
+        }
       ]
-  };
-
-  ko.applyBindings(myViewModel);
-
+    }
+  })
 });
