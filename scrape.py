@@ -44,7 +44,7 @@ else:
 
 
 def createTeam(connection, team):
-    sqlInsertTeam = '''INSERT INTO teams(id, name, points) VALUES(?, ?, ?);'''
+    sqlInsertTeam = '''REPLACE INTO teams(id, name, points) VALUES(?, ?, ?);'''
     c = connection.cursor()
     c.execute(sqlInsertTeam, team)
     return c.lastrowid
@@ -54,7 +54,7 @@ def createTeam(connection, team):
 for team in range(0, 20):
     teamStats = []
     stats = teams[team].find_all("td", {"align":"center"})
-    thisteam = teams[team].find("td", {"align": "left"}).get_text().replace(" ", "").strip().lower()
+    thisteam = teams[team].find("td", {"align": "left"}).get_text().replace(" ", "").strip().lower().replace("&", "and")
     print("generating data: " + thisteam)
     url = teams[team].find("a", href=True)['href']
 
@@ -67,7 +67,7 @@ for team in range(0, 20):
         teamStats.append(stats[iter].get_text().strip())
         #file.write(teamStatDescription[idx] + ":" + teamStats[idx] + "\n")
     if connection is not None:
-        teamDB = (team, thisteam, teamStats[0])
+        teamDB = (team, thisteam, teamStats[7])
         createTeam(connection, teamDB)
         print("created " + thisteam + " in database")
 
