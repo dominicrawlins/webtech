@@ -1,5 +1,4 @@
 const {User} = require('../models')
-const dao = require('../db/dao.js')
 const sql = require('sqlite3')
 
 const path = require('path')

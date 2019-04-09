@@ -5,7 +5,6 @@ const morgan = require('morgan');
 const {sequelize} = require('./models');
 const config = require('./config/config');
 const sql = require('sqlite3');
-const dao = require('./db/dao.js');
 
 const app= express();
 app.use(morgan('combined'));
@@ -26,9 +25,20 @@ let db = new sql.Database(dbPath, (err) => {
   }
 });
 
+const sqlQuery = 'CREATE TABLE IF NOT EXISTS users (email STRING PRIMARY KEY, password STRING)';
+const params =  []
+db.run(sqlQuery, [], function (err) {
+  if (err) {
+    console.log('Error running sql ' + sql)
+    console.log(err)
+    //reject(err)
+  } else {
+    console.log(db)
+    console.log("run database command")
+    //resolve({ id: this.lastID })
+      }
+    })
 
-const createTableSQL = 'CREATE TABLE IF NOT EXISTS users (email STRING PRIMARY KEY, password STRING)';
-dao.run(db, createTableSQL);
 console.log("created users table");
 
 db.close();
