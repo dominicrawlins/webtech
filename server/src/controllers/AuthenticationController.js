@@ -1,4 +1,3 @@
-const {User} = require('../models')
 const sql = require('sqlite3')
 
 const path = require('path')

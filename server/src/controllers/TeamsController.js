@@ -1,4 +1,3 @@
-const {Team} = require('../models')
 const sql = require('sqlite3')
 const path = require('path')
 const dbPath = path.join(__dirname, '../db/', 'footballStats.db')
