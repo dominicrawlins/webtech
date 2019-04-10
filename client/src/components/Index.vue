@@ -4,12 +4,25 @@
         <thead>
           <tr>
             <th>Team</th>
+            <th>Games Played</th>
+            <th>Wins</th>
+            <th>Draws</th>
+            <th>Losses</th>
+            <th>Goals Scored</th>
+            <th>Goals Against</th>
             <th>Points</th>
+
           </tr>
         </thead>
         <tbody v-for="team in teams">
           <tr>
             <td>{{team.name}}</td>
+            <td>{{team.gamesPlayed}}</td>
+            <td>{{team.wins}}</td>
+            <td>{{team.draws}}</td>
+            <td>{{team.losses}}</td>
+            <td>{{team.goalsFor}}</td>
+            <td>{{team.goalsAgainst}}</td>
             <td>{{team.points}}</td>
           </tr>
         </tbody>
