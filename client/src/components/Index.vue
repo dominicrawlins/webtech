@@ -16,7 +16,9 @@
         </thead>
         <tbody v-for="team in teams">
           <tr>
-            <td>{{team.name}}</td>
+            <router-link :to="{name:'team', params:{team: team.name}}">
+              <td>{{team.name}}</td>
+            </router-link>
             <td>{{team.gamesPlayed}}</td>
             <td>{{team.wins}}</td>
             <td>{{team.draws}}</td>

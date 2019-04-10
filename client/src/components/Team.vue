@@ -1,5 +1,8 @@
 <template>
   <div>
+    <router-link :to="{path: '/index'}">
+      <h1> Home </h1>
+    </router-link>
       <table id="teamStatsTable">
         <thead>
           <tr>
