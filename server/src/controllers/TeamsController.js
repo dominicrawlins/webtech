@@ -4,34 +4,37 @@ const dbPath = path.join(__dirname, '../db/', 'footballStats.db')
 
 module.exports = {
   async index (req, res){
-    try{
-      let db = new sql.Database(dbPath, (err) => {
-        if(err){
-          console.error(err.message);
-        }
-      })
-      const sqlQuery = 'SELECT * FROM teams';
-      db.all(sqlQuery, [], (err, result) => {
-        if (err) {
-          console.log("nah")
-          console.log('Error running sql: ' + sql)
-          console.log(err)
-        //  reject(err)
-        } else {
-          console.log("got it")
+    let indexQuery = 'SELECT * FROM teams'
+    sqlQuery(req, res, indexQuery, [])
+  },
 
-          res.send(result)
-        //  resolve(result)
-        }
-//      })
+
+  async getTeam(req, res){
+    let indexQuery = 'SELECT * FROM teams WHERE name = ?'
+    let params = req.params.team
+    sqlQuery(req, res, indexQuery, params)
+  }
+}
+
+function sqlQuery(req, res, sqlQuery, params){
+  try{
+    let db = new sql.Database(dbPath, (err) => {
+      if(err){
+        console.error(err.message);
+      }
     })
-      db.close();
-    } catch(err){
-      res.status(400).send({
-        error: err.message
-      })
-    }
 
-
+    db.all(sqlQuery, params, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(result)
+      }
+  })
+    db.close();
+  } catch(err){
+    res.status(400).send({
+      error: err.message
+    })
   }
 }

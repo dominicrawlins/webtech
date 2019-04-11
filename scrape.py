@@ -33,7 +33,7 @@ def createTable(connection, createTableSql):
         print(e)
 
 
-sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (id integer PRIMARY KEY, name text NOT NULL, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer);'''
+sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (name text PRIMARY KEY, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer, twitterURL string);'''
 
 
 database = "server/src/db/footballStats.db"
@@ -45,12 +45,14 @@ else:
 
 
 def createTeam(connection, team):
-    sqlInsertTeam = '''REPLACE INTO teams(id, name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
+    sqlInsertTeam = '''REPLACE INTO teams(name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points, twitterURL) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
     c = connection.cursor()
     c.execute(sqlInsertTeam, team)
     return c.lastrowid
 
 
+twitterURLs = ['LFC', 'ManCity', 'ChelseaFC', 'SpursOffical', 'Arsenal', 'ManUtd', 'LCFC', 'Wolves', 'Everton', 'WatfordFC', 'WestHamUtd', 'CPFC', 'afcbournemouth', 'BurnleyOfficial', 'NUFC', 'OfficalBHAFC', 'SouthamptonFC', 'CardiffCityFC', 'FulhamFC', 'htafcdotcom']
+teamNames = []
 
 for team in range(0, 20):
     teamStats = []
@@ -68,8 +70,9 @@ for team in range(0, 20):
         teamStats.append(stats[iter].get_text().strip())
         #file.write(teamStatDescription[idx] + ":" + teamStats[idx] + "\n")
     if connection is not None:
-        teamDB = (team, thisteam, teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7],)
+        teamDB = (thisteam, teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7], twitterURLs[team])
         createTeam(connection, teamDB)
+        teamNames.append(thisteam)
 
 
 foxTeamsURL = "https://www.foxsports.com/soccer/liverpool-team"
@@ -81,7 +84,7 @@ teamURLs = []
 for teamref in teamrefs:
     teamURLs.append(teamref['href'])
 
-sqlCreatePlayersTable = '''CREATE TABLE IF NOT EXISTS players(id integer PRIMARY KEY, team integer, name text NOT NULL, goals integer, assists integer, position string);'''
+sqlCreatePlayersTable = '''CREATE TABLE IF NOT EXISTS players(id integer PRIMARY KEY, team string NOT NULL, name text NOT NULL, goals integer, assists integer, position string);'''
 
 if connection is not None:
     createTable(connection, sqlCreatePlayersTable)
@@ -124,7 +127,7 @@ for idx, teamURL in enumerate(teamURLs):
         else:
             endName = re.search("[A-Z]", positionAndName[3:]).start() + 3
         name = positionAndName[startName: endName]
-        sqlInsertStats = [nextid, idx, name, listOfPlayerStats[4], listOfPlayerStats[5], position]
+        sqlInsertStats = [nextid, teamNames[idx], name, listOfPlayerStats[4], listOfPlayerStats[5], position]
         createPlayer(connection, sqlInsertStats)
         nextid += 1
         print("added: " + name)

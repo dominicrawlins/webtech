@@ -11,46 +11,19 @@ module.exports = {
         }
       })
       const team = req.params.team
-      db.get('SELECT id FROM teams WHERE name = ?;', team, (err, result) => {
-        if(err){
+      const sqlQuery = 'SELECT * FROM players WHERE team = ?;'
+      db.all(sqlQuery, [team], (err, result) => {
+        if (err) {
           console.log(err)
-        } else{
-          try{
-            const id = result.id
-
-            console.log(id)
-
-            const sqlQuery = 'SELECT * FROM players WHERE team = ?;'
-            db.all(sqlQuery, [id], (err, result) => {
-              if (err) {
-                console.log("nah")
-                console.log('Error running sql: ' + sql)
-                console.log(err)
-              } else {
-                console.log("got it")
-                console.log(result)
-
-                res.send(result)
-              }
-          }
-          )
-        } catch(err){
-          console.log(err)
-        }
+        } else {
+          res.send(result)
         }
       })
-
-
-
-
-
       db.close();
-    } catch(err){
-      res.status(400).send({
-        error: err.message
-      })
-    }
-
-
-  }
-}
+     } catch(err){
+       res.status(400).send({
+         error: err.message
+       })
+     }
+   }
+ }

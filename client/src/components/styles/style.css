@@ -1,3 +1,9 @@
 .error{
   color:red;
 }
+.twitterFeed{
+  width: 30%;
+  float: right;
+  overflow-y: scroll;
+  height: 770px;
+}
