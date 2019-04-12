@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+
+
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
 .error{
   color:red;
 }
@@ -5,7 +13,7 @@
   width: 30%;
   float: right;
   overflow-y: scroll;
-  height: 770px;
+  max-height: 100vh;
 }
 .homemadeToolbarHorizontal{
   list-style-type: none;
