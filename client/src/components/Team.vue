@@ -1,8 +1,5 @@
 <template>
   <div>
-    <router-link :to="{path: '/index'}">
-      <h1> Home </h1>
-    </router-link>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
       <table id="teamStatsTable">
         <thead>
