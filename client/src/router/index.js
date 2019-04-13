@@ -6,7 +6,7 @@ import Team from '@/components/Team'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
 
     {
@@ -22,7 +22,8 @@ export default new Router({
     {
       path: '/index',
       name: 'index',
-      component: Index
+      component: Index,
+      meta: {title: 'Home'}
     },
     {
       path: '*',
@@ -30,3 +31,11 @@ export default new Router({
     }
   ]
 })
+
+const defaultTitle = 'Football Stats';
+router.afterEach((to, from) => {
+  document.title = to.meta.title || defaultTitle;
+});
+
+
+export default router;
