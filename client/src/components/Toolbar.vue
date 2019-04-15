@@ -30,6 +30,7 @@
     <router-link :to="{path: '/index'}">
   <li class="toolbarItem">Home</li>
 </router-link>
+<li class="toolbarItem">
   <div class="dropdown">
     <button class="dropbtn">Teams
       <i class="fa fa-caret-down"></i>
@@ -101,8 +102,10 @@
         </router-link>
     </div>
   </div>
+
   </div>
   </div>
+</li>
 </div>
 
 
