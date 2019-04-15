@@ -20,17 +20,29 @@ export default {
   },
   async mounted() {
     try{
-      this.urlLoaded = false
-      const team = this.$route.params.team
-      this.players = (await TeamService.getPlayers(team)).data
-      this.teamAttributes = (await TeamService.getTeamStats(team)).data
-      this.urlLoaded = true
+      let mountedTeam = this.$route.params.team
+      await this.fetchData(mountedTeam)
     }
     catch(err){
       console.log(err)
     }
 
   },
+  watch: {
+    '$route.params':{
+      handler(newValue) {
+            let newTeam = newValue.team
+            this.fetchData(newTeam)
+        },
+        immediate: true,
+    }
+  },
   methods: {
+    async fetchData(team){
+      this.urlLoaded = false
+      this.players = (await TeamService.getPlayers(team)).data
+      this.teamAttributes = (await TeamService.getTeamStats(team)).data
+      this.urlLoaded = true
+    }
   }
 }

@@ -29,8 +29,14 @@ const router = new Router({
       path: '*',
       redirect: 'index'
     }
-  ]
+  ],
+  beforeRouteUpdate (to, from, next){
+    this.name = to.params.name;
+    next();
+  }
 })
+
+
 
 const defaultTitle = 'Football Stats';
 router.afterEach((to, from) => {
