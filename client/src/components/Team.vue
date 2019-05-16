@@ -4,10 +4,10 @@
       <table id="teamStatsTable">
         <thead>
           <tr>
-            <th>Player</th>
-            <th>Position</th>
-            <th>Goals</th>
-            <th>Assists</th>
+            <th class="test">Player</th>
+            <th class="test">Position</th>
+            <th class="test">Goals</th>
+            <th class="test">Assists</th>
 
           </tr>
         </thead>

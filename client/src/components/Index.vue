@@ -1,16 +1,19 @@
 <template>
   <div>
-      <table id="teamStatsTable">
+    <div>
+      <p>hello</p>
+    </div>
+      <table id="teamStatsTable" class="tab_format">
         <thead>
           <tr>
-            <th>Team</th>
-            <th>Games Played</th>
-            <th>Wins</th>
-            <th>Draws</th>
-            <th>Losses</th>
-            <th>Goals Scored</th>
-            <th>Goals Against</th>
-            <th>Points</th>
+            <th class="tab_format">Team</th>
+            <th class="tab_format">Games Played</th>
+            <th class="tab_format">Wins</th>
+            <th class="tab_format">Draws</th>
+            <th class="tab_format">Losses</th>
+            <th class="tab_format">Goals Scored</th>
+            <th class="tab_format">Goals Against</th>
+            <th class="tab_format">Points</th>
 
           </tr>
         </thead>

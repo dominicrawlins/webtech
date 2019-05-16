@@ -30,6 +30,9 @@
     <router-link :to="{path: '/index'}">
   <li class="toolbarItem">Home</li>
 </router-link>
+    <router-link :to="{path: '/register'}">
+  <li class="toolbarItem">Register</li>
+  </router-link>
 <li class="toolbarItem">
   <div class="dropdown">
     <button class="dropbtn">Teams
