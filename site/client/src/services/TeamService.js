@@ -14,5 +14,18 @@ export default {
   getTeamStats(team) {
     const url = '/' + team + '/stats'
     return Api().get(url)
+  },
+  getSortedTeams(sort, columns){
+    let url = '/stats/teams'
+    if(sort){
+      url += '?sort=' + sort
+    }
+    if(columns){
+      for(let i = 0; i < columns.length; i++){
+        url += '&columns=' + columns[i]
+      }
+    }
+    console.log(url)
+    return Api().get(url)
   }
 }
