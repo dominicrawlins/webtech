@@ -32,15 +32,20 @@ function addSortQuery(query, sortBy){
 }
 
 function addColumns(columns){
-  console.log(columns)
+  console.log(typeof columns)
   query = "SELECT "
-  for(i = 0; i < columns.length; i++){
-    query += columns[i]
-    if(i != columns.length - 1){
-      query += ", "
-    }
-    else{
-      query += " "
+  if(typeof columns === 'string'){
+    query += columns + " "
+  }
+  else{
+    for(i = 0; i < columns.length; i++){
+      query += columns[i]
+      if(i != columns.length - 1){
+        query += ", "
+      }
+      else{
+        query += " "
+      }
     }
   }
   return query
