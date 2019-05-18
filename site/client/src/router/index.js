@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Register from '@/components/Register'
 import Team from '@/components/Team'
+import TopTeamStats from '@/components/TopTeamStats'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ const router = new Router({
       name: 'index',
       component: Index,
       meta: {title: 'Home'}
+    },
+    {
+      path:'/stats/teams',
+      name: 'topTeamStats',
+      component: TopTeamStats
     },
     {
       path: '*',

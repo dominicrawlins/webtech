@@ -105,7 +105,11 @@
 
   </div>
   </div>
+
 </li>
+<router-link :to="{path: '/stats/teams'}">
+<li class="toolbarItem">Team Stats</li>
+</router-link>
 </div>
 
 
