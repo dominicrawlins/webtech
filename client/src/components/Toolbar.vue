@@ -36,6 +36,9 @@
   <router-link :to="{path: '/login'}">
     <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Log In</li>
   </router-link>
+  <router-link @click.native="logout" to="/logout">
+  <li class="toolbarItem" v-if="$store.state.isUserLoggedIn">Log Out</li>
+  </router-link>
 <li class="toolbarItem">
   <div class="dropdown">
     <button class="dropbtn">Teams
