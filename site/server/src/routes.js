@@ -7,6 +7,8 @@ StatsController = require('./controllers/StatsController')
 
 module.exports = (app) => {
   app.post('/register', AuthenticationControllerPolicy.register, AuthenticationController.register)
+  
+  app.post('/login',AuthenticationController.login)
 
   app.get('/stats/teams', StatsController.getTeamStats)
 

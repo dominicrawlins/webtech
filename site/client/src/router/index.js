@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Register from '@/components/Register'
 import Team from '@/components/Team'
 import TopTeamStats from '@/components/TopTeamStats'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ const router = new Router({
       path:'/stats/teams',
       name: 'topTeamStats',
       component: TopTeamStats
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '*',

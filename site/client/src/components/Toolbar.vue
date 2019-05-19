@@ -85,6 +85,12 @@
 <router-link :to="{path: '/stats/teams'}">
 <li class="toolbarItem">Team Stats</li>
 </router-link>
+<router-link :to="{path: '/register'}">
+  <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Register</li>
+</router-link>
+<router-link :to="{path: '/login'}">
+  <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Log In</li>
+  </router-link>
 </div>
 
 

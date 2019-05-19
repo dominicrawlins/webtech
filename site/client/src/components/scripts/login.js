@@ -9,9 +9,9 @@ export default {
 
   },
   methods: {
-    async register() {
+    async login() {
       try{
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
