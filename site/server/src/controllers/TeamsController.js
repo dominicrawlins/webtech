@@ -10,7 +10,7 @@ module.exports = {
 
 
   async getTeam(req, res){
-    let indexQuery = 'SELECT * FROM teams WHERE name = ?'
+    let indexQuery = 'SELECT * FROM teams WHERE id = ?'
     let params = req.params.team
     sqlQuery(req, res, indexQuery, params)
   }

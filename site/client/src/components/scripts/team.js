@@ -42,6 +42,8 @@ export default {
       this.urlLoaded = false
       this.players = (await TeamService.getPlayers(team)).data
       this.teamAttributes = (await TeamService.getTeamStats(team)).data
+      console.log("team atts: " + this.teamAttributes)
+      console.log("player atts: "+ this.players)
       this.urlLoaded = true
     }
   }
