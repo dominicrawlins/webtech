@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>This is where the top stats will go.</p>
-    <indiTopStats stat="this is the stat i want"></indiTopStats>
+    <indiTopStats :stat= "stat" :columns="columns" ></indiTopStats>
     </div>
 </template>
 

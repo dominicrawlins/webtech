@@ -3,15 +3,13 @@
     <table id="teamGoalsScoredTable">
       <thead>
         <tr>
-          <th>Team</th>
-          <th>Goals Scored</th>
+          <th v-for="column in namedColumns">{{column}}</th>
 
         </tr>
       </thead>
       <tbody v-for="teamStat in teamStats">
         <tr>
-          <td>{{teamStat.name}}</td>
-          <td>{{teamStat.goalsFor}}</td>
+          <td  v-for="(value, propertyName) in teamStat">{{value}}</td>
         </tr>
       </tbody>
     </table>

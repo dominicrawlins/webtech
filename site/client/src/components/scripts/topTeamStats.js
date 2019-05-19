@@ -5,6 +5,8 @@ export default {
   },
     data () {
     return{
+      stat: "goalsAgainst",
+      columns: ["name", "goalsFor", "goalsAgainst"]
     }
 
   },
