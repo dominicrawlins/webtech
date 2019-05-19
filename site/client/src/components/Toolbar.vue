@@ -1,31 +1,6 @@
 
 <template>
 
-<!--<ul class="homemadeToolbarHorizontal">
-  <router-link :to="{path: '/index'}">
-    <li class="homemadeToolbarHorizontalOption">
-      Home
-    </li>
-  </router-link>
-  <div class = "homemadeToolbarDropdown">
-  <li class = "homemadeToolbarHorizontalOption">
-    Teams
-    <div class="homemadeToolbarDropdownContent">
-      <ul class = "homemadeToolbarVertical">
-        <li class="homemadeToolbarVerticalOption">
-          Boom
-        </li>
-        <li class="homemadeToolbarVerticalOption">
-          Hello
-        </li>
-      </ul>
-    </div>
-  </li>
-</div>
-
-</ul>
--->
-
 <div class="navbar">
     <router-link :to="{path: '/index'}">
   <li class="toolbarItem">Home</li>

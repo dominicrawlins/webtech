@@ -33,7 +33,7 @@ def createTable(connection, createTableSql):
         print(e)
 
 
-sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (name text PRIMARY KEY, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer, twitterURL string);'''
+sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (id text PRIMARY KEY, name text, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer, twitterURL string);'''
 
 
 database = "server/src/db/footballStats.db"
@@ -45,13 +45,56 @@ else:
 
 
 def createTeam(connection, team):
-    sqlInsertTeam = '''REPLACE INTO teams(name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points, twitterURL) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
+    sqlInsertTeam = '''REPLACE INTO teams(id, name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points, twitterURL) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
     c = connection.cursor()
     c.execute(sqlInsertTeam, team)
     return c.lastrowid
 
+twitterDictionary = {
+   'liverpool': 'LFC',
+   'manchestercity': 'ManCity',
+   'chelsea': 'ChelseaFC',
+   'tottenham': 'SpursOfficial',
+   'arsenal': 'Arsenal',
+   'manchesterutd': 'ManUtd',
+   'leicestercity': 'LCFC',
+   'wolverhampton': 'Wolves',
+   'everton': 'Everton',
+   'watford': 'WatfordFC',
+   'westhamutd': 'WestHamUtd',
+   'crystalpalace': 'CPFC',
+   'bournemouth': 'afcbournemouth',
+   'burnley': 'BurnleyOfficial',
+   'newcastleutd': 'NUFC',
+   'brighton': 'OfficialBHAFC',
+   'southampton': 'SouthamptonFC',
+   'cardiffcity': 'CardiffCityFC',
+   'fulham': 'FulhamFC',
+   'huddersfield': 'htafcdotcom'
+}
 
-twitterURLs = ['LFC', 'ManCity', 'ChelseaFC', 'SpursOffical', 'Arsenal', 'ManUtd', 'LCFC', 'Wolves', 'Everton', 'WatfordFC', 'WestHamUtd', 'CPFC', 'afcbournemouth', 'BurnleyOfficial', 'NUFC', 'OfficalBHAFC', 'SouthamptonFC', 'CardiffCityFC', 'FulhamFC', 'htafcdotcom']
+nameDictionary = {
+   'liverpool': 'Liverpool',
+   'manchestercity': 'Manchester City',
+   'chelsea': 'Chelsea',
+   'tottenham': 'Bottlejobs',
+   'arsenal': 'Arsenal',
+   'manchesterutd': 'Manchester United',
+   'leicestercity': 'Leicester City',
+   'wolverhampton': 'Wolves',
+   'everton': 'Everton',
+   'watford': 'Watford',
+   'westhamutd': 'West Ham United',
+   'crystalpalace': 'Crystal Palace',
+   'bournemouth': 'Bournemouth',
+   'burnley': 'Burnley',
+   'newcastleutd': 'Newcaslte United',
+   'brighton': 'Brighton and Hove Albion',
+   'southampton': 'Southampton',
+   'cardiffcity': 'Cardiff City',
+   'fulham': 'Fulham',
+   'huddersfield': 'Huddersfield Town'
+}
 teamNames = []
 
 for team in range(0, 20):
@@ -70,7 +113,7 @@ for team in range(0, 20):
         teamStats.append(stats[iter].get_text().strip())
         #file.write(teamStatDescription[idx] + ":" + teamStats[idx] + "\n")
     if connection is not None:
-        teamDB = (thisteam, teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7], twitterURLs[team])
+        teamDB = (thisteam, nameDictionary[thisteam], teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7], twitterDictionary[thisteam])
         createTeam(connection, teamDB)
         teamNames.append(thisteam)
 
