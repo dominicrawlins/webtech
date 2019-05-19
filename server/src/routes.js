@@ -6,10 +6,13 @@ PlayersController = require('./controllers/PlayersController')
 module.exports = (app) => {
   app.post('/register', AuthenticationControllerPolicy.register, AuthenticationController.register)
 
+  app.post('/login',AuthenticationController.login)
+
   app.get('/:team/players', PlayersController.index)
 
   app.get('/:team/stats', TeamsController.getTeam)
 
   app.get('/', TeamsController.index)
+
 
 }

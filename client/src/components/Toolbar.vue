@@ -31,7 +31,10 @@
   <li class="toolbarItem">Home</li>
 </router-link>
     <router-link :to="{path: '/register'}">
-  <li class="toolbarItem">Register</li>
+  <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Register</li>
+  </router-link>
+  <router-link :to="{path: '/login'}">
+    <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Log In</li>
   </router-link>
 <li class="toolbarItem">
   <div class="dropdown">

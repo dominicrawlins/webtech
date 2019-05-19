@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs>
       <div class="white elevation-2">
         <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
+          <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pt-2 pb-2">
           <v-text-field
@@ -12,7 +12,7 @@
             ></v-text-field>
            <br>
            <v-text-field
-              :type="'password'"      
+              :type="'password'"
                v-model="password"
                label="Password"
              ></v-text-field>
@@ -21,8 +21,8 @@
            <br>
            <v-btn
              class="cyan"
-             @click="register">
-             Register
+             @click="login">
+             LogIn
            </v-btn>
         </div>
       </div>
@@ -31,7 +31,7 @@
 
 </template>
 
-<script src="./scripts/register.js"> </script>
+<script src="./scripts/login.js"> </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style src="./styles/style.css"></style>

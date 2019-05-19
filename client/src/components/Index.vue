@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <p>hello</p>
+    <div class="right">
+      <p>Welcome to the Premier League Stats Page!</p>
     </div>
       <table id="teamStatsTable" class="tab_format">
         <thead>
