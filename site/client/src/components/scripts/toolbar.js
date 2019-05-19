@@ -11,5 +11,9 @@ export default {
     console.log(this.teams)
   },
   methods: {
+    logout() {
+      this.$store.dispatch('setToken',null)
+      this.$router.push('root')
+    }
   }
 }
