@@ -19,7 +19,7 @@
       <router-link :to="{path: '/team/bournemouth'}">
         <li class="dropdownItem">Bournemouth</li>
       </router-link>
-      <router-link :to="{path: '/team/brightonandhove'}">
+      <router-link :to="{path: '/team/brighton'}">
         <li class="dropdownItem">Brighton</li>
       </router-link>
       <router-link :to="{path: '/team/burnley'}">
