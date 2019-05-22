@@ -6,7 +6,6 @@ const config = require('./config/config');
 const sql = require('sqlite3');
 const https = require('https');
 const fs = require('fs');
-
 const app= express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
@@ -44,8 +43,9 @@ console.log("created users table");
 
 db.close();
 
-const keyPath = path.join(__dirname, 'server.key')
-const certPath = path.join(__dirname, 'server.crt')
+
+//const keyPath = path.join(__dirname, 'server.key')
+//const certPath = path.join(__dirname, 'server.crt')
 /*https.createServer({key: fs.readFileSync(keyPath, 'utf8'),
                     cert: fs.readFileSync(certPath, 'utf8'),
                     passphrase: 'pass',

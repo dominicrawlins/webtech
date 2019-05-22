@@ -13,5 +13,9 @@ export default {
     console.log(this.lastVisited)
   },
   methods: {
+
+    getImgUrl(pic) {
+      return require('../../assets/' + pic + '.png')
+    }
   }
 }
