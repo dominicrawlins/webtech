@@ -38,7 +38,7 @@
         <li class="dropdownItem">Everton</li>
       </router-link>
       <router-link :to="{path: '/team/fulham'}">
-        <li class="dropdownItem">Fulhaml</li>
+        <li class="dropdownItem">Fulham</li>
       </router-link>
     </div>
     <div class="column">

@@ -10,5 +10,9 @@ export default {
     this.teams = (await TeamService.getTeams()).data
   },
   methods: {
+
+    getImgUrl(pic) {
+      return require('../../assets/' + pic + '.png')
+    }
   }
 }

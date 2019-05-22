@@ -1,7 +1,7 @@
 <template>
   <div>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
-      <table id="teamStatsTable">
+      <table id="teamStatsTable" class="content-table">
         <thead>
           <tr>
             <th>Player</th>
