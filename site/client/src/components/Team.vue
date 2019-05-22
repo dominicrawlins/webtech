@@ -1,7 +1,9 @@
 <template>
   <div>
+    <div v-if="urlLoaded">
     <h1>{{teamAttributes[0].name}}</h1>
     <img :src="getImageUrl(teamAttributes[0].id)" width=40 height=40 align="center">
+  </div>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
       <table id="teamStatsTable" class="content-table">
         <thead>
