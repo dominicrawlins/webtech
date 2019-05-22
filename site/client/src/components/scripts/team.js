@@ -69,7 +69,6 @@ export default {
       }
       else{
         lastVisited = [team]
-        connsole.log("hello2")
       }
       this.$cookie.set('lastVisited', JSON.stringify(lastVisited), 1);
     }
