@@ -4,9 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const config = require('./config/config');
 const sql = require('sqlite3');
-const https = require('https')
-const fs = require('fs')
-
+const https = require('https');
+const fs = require('fs');
 const app= express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
@@ -44,8 +43,13 @@ console.log("created users table");
 
 db.close();
 
-const keyPath = path.join(__dirname, 'key.pem')
-const certPath = path.join(__dirname, 'cert.pem')
-//app.listen(config.port);
+
+//const keyPath = path.join(__dirname, 'server.key')
+//const certPath = path.join(__dirname, 'server.crt')
+/*https.createServer({key: fs.readFileSync(keyPath, 'utf8'),
+                    cert: fs.readFileSync(certPath, 'utf8'),
+                    passphrase: 'pass',
+                    requestCert: false,
+                    rejectUnauthorized: false}, app).listen(8080);*/
 app.listen(8080)
-console.log('Server started on port ' + config.port);
+console.log("running on port:"+config.port)

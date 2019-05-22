@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Team from '@/components/Team'
 import TopTeamStats from '@/components/TopTeamStats'
 import Login from '@/components/Login'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
 
@@ -38,8 +39,13 @@ const router = new Router({
       component: Login
     },
     {
+      path: '/not-found',
+      name: 'not-found',
+      component: NotFound
+    },
+    {
       path: '*',
-      redirect: 'index'
+      redirect: 'not-found'
     }
   ],
   beforeRouteUpdate (to, from, next){
