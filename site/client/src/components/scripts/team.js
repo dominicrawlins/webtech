@@ -21,6 +21,7 @@ export default {
   async mounted() {
     try{
       let mountedTeam = this.$route.params.team
+      this.updateLastVisited(mountedTeam)
       await this.fetchData(mountedTeam)
     }
     catch(err){
@@ -32,6 +33,7 @@ export default {
     '$route.params':{
       handler(newValue) {
             let newTeam = newValue.team
+            this.updateLastVisited(newTeam)
             this.fetchData(newTeam)
         },
         immediate: true,
@@ -45,6 +47,30 @@ export default {
       console.log("team atts: " + this.teamAttributes)
       console.log("player atts: "+ this.players)
       this.urlLoaded = true
+    },
+    updateLastVisited(team){
+      var lastVisited = JSON.parse(this.$cookie.get('lastVisited'))
+      if(lastVisited){
+        if(lastVisited.includes(team)){
+          for(var i = 0; i < lastVisited.length; i++){
+            if(lastVisited[i] == team){
+              lastVisited.splice(i, 1)
+            }
+          }
+          lastVisited.push(team)
+        }
+        else{
+          if(lastVisited.length >= 10){
+            lastVisited.shift()
+          }
+          lastVisited.push(team)
+        }
+
+      }
+      else{
+        lastVisited = [team]
+      }
+      this.$cookie.set('lastVisited', JSON.stringify(lastVisited), 1);
     }
   }
 }
