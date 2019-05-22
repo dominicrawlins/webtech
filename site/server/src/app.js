@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const config = require('./config/config');
 const sql = require('sqlite3');
+const https = require('https')
+const fs = require('fs')
 
 const app= express();
 app.use(morgan('combined'));
@@ -42,5 +44,8 @@ console.log("created users table");
 
 db.close();
 
-app.listen(config.port);
+const keyPath = path.join(__dirname, 'key.pem')
+const certPath = path.join(__dirname, 'cert.pem')
+//app.listen(config.port);
+app.listen(8080)
 console.log('Server started on port ' + config.port);

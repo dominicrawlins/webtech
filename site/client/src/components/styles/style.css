@@ -23,17 +23,18 @@
 .navbar {
   list-style-type: none;
   overflow: hidden;
-  background-color: #333;
+  background-color: indigo;
   top: 0px;
   width: 100%;
   position: absolute;
+  border-bottom: 1px solid black;
 }
 
 /* Links inside the navbar */
 .navbar .toolbarItem {
   float: left;
   font-size: 16px;
-  color: white;
+  color: lime;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -51,14 +52,14 @@
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: lime;
 
   background-color: inherit;
 }
 
 /* Add a red background color to navbar links on hover */
 .toolbarItem:hover, .dropdown:hover .dropbtn {
-  background-color: #111;
+  background-color: white;
 }
 
 /* Dropdown content (hidden by default) */
