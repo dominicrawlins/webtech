@@ -48,6 +48,9 @@ export default {
       console.log("player atts: "+ this.players)
       this.urlLoaded = true
     },
+    getImageUrl(pic){
+      return require('../../assets/' + pic + '.png')
+    },
     updateLastVisited(team){
       var lastVisited = JSON.parse(this.$cookie.get('lastVisited'))
       if(lastVisited){

@@ -51,7 +51,7 @@
         </thead>
         <tbody v-for="team in teams">
           <tr class="active-row">
-            <td><img src="../assets/manchesterunited.png" width="40" height="40"></td>
+            <td><img :src="getImageUrl(team.id)" width="40" height="40"></td>
             <router-link :to="{name:'team', params:{team: team.id}}">
               <td>{{team.name}}</td>
             </router-link>
