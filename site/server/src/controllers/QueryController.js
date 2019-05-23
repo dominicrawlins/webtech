@@ -13,7 +13,7 @@ module.exports = {
       indexQuery = addTable(indexQuery, "teams")
       const sortby = req.query.sort
       if(sortby){
-        indexQuery = addSortQuery(indexQuery, sortby)
+        indexQuery = addSortQuery(indexQuery, sortby, req.query.order)
       }
       sqlQuery(req, res, indexQuery, [])
     }catch (err) {
@@ -22,12 +22,36 @@ module.exports = {
         error: 'error returning top stats'
       })
     }
+  },
+  async getTeamsPlayers(req, res){
+    try{
+      const team = req.params.team
+      const query = 'SELECT * FROM players WHERE team = ?;'
+      sqlQuery(req, res, query, team)
+    } catch(err){
+      res.status(500).send({
+        error: err.message
+      })
+    }
+  },
+  async index (req, res){
+    let indexQuery = 'SELECT * FROM teams'
+    sqlQuery(req, res, indexQuery, [])
+  },
+
+
+  async getTeam(req, res){
+    let indexQuery = 'SELECT * FROM teams WHERE id = ?'
+    let params = req.params.team
+    sqlQuery(req, res, indexQuery, params)
   }
 }
 
-function addSortQuery(query, sortBy){
+function addSortQuery(query, sortBy, order){
   query += " ORDER BY " + sortBy
-  console.log("Hello")
+  if(order){
+    query += + " " + order
+  }
   return query
 }
 
@@ -64,6 +88,7 @@ function sqlQuery(req, res, sqlQuery, params){
         console.error(err.message);
       }
     })
+    console.log(sqlQuery)
 
     db.all(sqlQuery, params, (err, result) => {
       if (err) {
@@ -71,7 +96,7 @@ function sqlQuery(req, res, sqlQuery, params){
       } else {
         res.send(result)
       }
-  })
+    })
     db.close();
   } catch(err){
     res.status(400).send({

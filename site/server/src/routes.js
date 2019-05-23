@@ -1,22 +1,20 @@
 AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
-TeamsController = require('./controllers/TeamsController')
-PlayersController = require('./controllers/PlayersController')
-StatsController = require('./controllers/StatsController')
+QueryController = require('./controllers/QueryController')
 
 
 module.exports = (app) => {
   app.post('/register', AuthenticationControllerPolicy.register, AuthenticationController.register)
-  
+
   app.post('/login',AuthenticationController.login)
 
-  app.get('/stats/teams', StatsController.getTeamStats)
+  app.get('/stats/teams', QueryController.getTeamStats)
 
-  app.get('/:team/players', PlayersController.index)
+  app.get('/:team/players', QueryController.getTeamsPlayers)
 
-  app.get('/:team/stats', TeamsController.getTeam)
+  app.get('/:team/stats', QueryController.getTeam)
 
-  app.get('/', TeamsController.index)
+  app.get('/', QueryController.index)
 
 
 }

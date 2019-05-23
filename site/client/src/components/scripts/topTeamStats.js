@@ -6,7 +6,9 @@ export default {
     data () {
     return{
       stat: "goalsAgainst",
-      columns: ["name", "goalsFor", "goalsAgainst"]
+      columns: ["name", "goalsFor", "goalsAgainst"],
+      sortBy: "goalsAgainst",
+      order: "desc"
     }
 
   },

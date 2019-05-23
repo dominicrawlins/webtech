@@ -91,8 +91,8 @@
 <router-link :to="{path: '/login'}">
   <li class="toolbarItem goRight" v-if="!$store.state.isUserLoggedIn">Log In</li>
   </router-link>
-  <router-link @click.native="logout" to="/logout">
-<li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Log Out</li>
+  <router-link :to="{path: '/profile'}">
+<li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Profile</li>
 </router-link>
 </div>
 
