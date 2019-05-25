@@ -9,14 +9,21 @@ export default {
     return{
       players: '',
       teamAttributes: '',
-      urlLoaded : ''
+      urlLoaded : '',
+      // topPlayers: [],
+      // no_of_goals: [],
+      hi :'',
+      width: '200px',
     }
 
   },
   computed: {
     ...mapState([
       'route'
-    ])
+    ]),
+    computedWidth() {
+      return this.width
+    }
   },
   async mounted() {
     try{
@@ -27,7 +34,6 @@ export default {
     catch(err){
       console.log(err)
     }
-
   },
   watch: {
     '$route.params':{
@@ -74,6 +80,21 @@ export default {
         lastVisited = [team]
       }
       this.$cookie.set('lastVisited', JSON.stringify(lastVisited), 1);
+    },
+    greet() {
+      this.hello = 'good morning'
+    },
+    getTopPlayers(players){
+      var arr_name = []
+      var arr_goals = []
+      var count = 0
+      for(var i = 0; i < 5; i++){
+          arr_name.push(players[i].name)
+          arr_goals.push(players[i].goals)
+      }
+      // topPlayers = arr_name
+      // no_of_goals = arr_goals
+      return [arr_name, arr_goals]
     }
   }
 }

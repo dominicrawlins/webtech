@@ -2,7 +2,7 @@
   <div>
     <div v-if="urlLoaded">
     <h1>{{teamAttributes[0].name}}</h1>
-    <img :src="getImageUrl(teamAttributes[0].id)" width=40 height=40 align="center">
+    <img :src="getImageUrl(teamAttributes[0].id)" width=200 height=200 align="center">
   </div>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
       <table id="teamStatsTable" class="content-table">
@@ -24,6 +24,7 @@
           </tr>
         </tbody>
       </table>
+      <h1>{{getTopPlayers(players)}}</h1>
     </div>
 </template>
 
