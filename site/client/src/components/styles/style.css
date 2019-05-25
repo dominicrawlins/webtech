@@ -167,3 +167,34 @@ svg:hover .top-pic {
   background: #F8F8F8;
   transition: all 0.9s;
 }
+
+#bar{
+  background-color:grey;
+  height:20px;
+  width: 20px;
+  display: block;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(0.25);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  75% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
