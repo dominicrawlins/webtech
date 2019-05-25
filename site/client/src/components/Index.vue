@@ -104,6 +104,12 @@
     <line fill="none" id="svg_120" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" x1="211.5" x2="206.5" y1="180.5" y2="132.5"/>
    <!-- </g> -->
   <!-- </svg> -->
+  <bars
+:data="[1, 2, 5, 9, 5, 10, 3, 5, 8, 12, 1, 8, 2, 9, 10, 2, 9, 4, 5, 6, 7, 3, 2, 3, 5]"
+:gradient="['#ffbe88', '#ff93df']"
+:barWidth="5"
+:growDuration="1">
+</bars>
     </div>
 </template>
 

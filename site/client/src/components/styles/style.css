@@ -131,13 +131,6 @@
   padding: 10px;
 }
 
-.left {
-  position: absolute;
-  left: 50px;
-  width: 0px;
-  padding: 1px;
-}
-
 .top-pic {
   transition: all 1.3s
 }
@@ -148,7 +141,7 @@ svg:hover .top-pic {
 .content-table {
   border-collapse: collapse;
   font-size: 1.1em;
-  min-width:400px;
+  min-width:100px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0,0,0,0.15);
@@ -157,13 +150,13 @@ svg:hover .top-pic {
 .content-table thead tr {
   background-color: indigo;
   color: white;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
 
 .content-table th,
 .content-table td {
-  padding: 12px 15px;
+  padding: 8px 10px;
 }
 
 .content-table tbody tr{

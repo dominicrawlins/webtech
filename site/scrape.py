@@ -33,7 +33,7 @@ def createTable(connection, createTableSql):
         print(e)
 
 
-sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (id text PRIMARY KEY, name text, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer, twitterURL string);'''
+sqlCreateTeamsTable = '''CREATE TABLE IF NOT EXISTS teams (id text PRIMARY KEY, name text, position integer, gamesPlayed integer, wins integer, draws integer, losses integer, goalsFor integer, goalsAgainst integer, points integer, twitterURL string, primaryColours string);'''
 
 
 database = "server/src/db/footballStats.db"
@@ -45,7 +45,7 @@ else:
 
 
 def createTeam(connection, team):
-    sqlInsertTeam = '''REPLACE INTO teams(id, name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points, twitterURL) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
+    sqlInsertTeam = '''REPLACE INTO teams(id, name, position, gamesPlayed, wins, draws, losses, goalsFor, goalsAgainst, points, twitterURL, primaryColours) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'''
     c = connection.cursor()
     c.execute(sqlInsertTeam, team)
     return c.lastrowid
@@ -77,7 +77,7 @@ nameDictionary = {
    'liverpool': 'Liverpool',
    'manchestercity': 'Manchester City',
    'chelsea': 'Chelsea',
-   'tottenham': 'Tottenham Hotspur',
+   'tottenham': 'Spurs',
    'arsenal': 'Arsenal',
    'manchesterutd': 'Manchester United',
    'leicestercity': 'Leicester City',
@@ -95,6 +95,30 @@ nameDictionary = {
    'fulham': 'Fulham',
    'huddersfield': 'Huddersfield Town'
 }
+
+primaryColours = {
+   'liverpool': '#FF0000',
+   'manchestercity': '#00FFFF',
+   'chelsea': '#0000FF',
+   'tottenham': '#FFFFFF',
+   'arsenal': '#FF0000',
+   'manchesterutd': '#FF0000',
+   'leicestercity': '#0000FF',
+   'wolverhampton': '#FFA500',
+   'everton': '#0000FF',
+   'watford': '#FFFF00',
+   'westhamutd': '#7F1734',
+   'crystalpalace': '#C4122E',
+   'bournemouth': '#B50E12',
+   'burnley': '#7F1734',
+   'newcastleutd': '#000000',
+   'brighton': '#0057B8',
+   'southampton': '#FF0000',
+   'cardiffcity': '#0057B8',
+   'fulham': '#FFFFFF',
+   'huddersfield': '#0E63AD'
+}
+
 teamNames = []
 
 for team in range(0, 20):
@@ -113,7 +137,7 @@ for team in range(0, 20):
         teamStats.append(stats[iter].get_text().strip())
         #file.write(teamStatDescription[idx] + ":" + teamStats[idx] + "\n")
     if connection is not None:
-        teamDB = (thisteam, nameDictionary[thisteam], teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7], twitterDictionary[thisteam])
+        teamDB = (thisteam, nameDictionary[thisteam], teamStats[0], teamStats[1], teamStats[2], teamStats[3], teamStats[4], teamStats[5], teamStats[6], teamStats[7], twitterDictionary[thisteam], primaryColours[thisteam])
         createTeam(connection, teamDB)
         teamNames.append(thisteam)
 
