@@ -51,7 +51,7 @@
         </thead>
         <tbody v-for="team in teams">
           <tr class="active-row">
-            <td><img :src="getImageUrl(team.id)" width="40" height="40"></td>
+            <td><img :src="getImageUrl(team.id)" height="40"></td>
             <router-link :to="{name:'team', params:{team: team.id}}">
               <td>{{team.name}}</td>
             </router-link>
@@ -68,8 +68,11 @@
       <img src="../assets/footballstatsco.svg">
 
 
+
       <div v-for="recentTeam in lastVisited">
+        <router-link :to="{name:'team', params:{team: recentTeam}}">
         {{recentTeam}}
+      </router-link>
       </div>
 
   <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"> -->

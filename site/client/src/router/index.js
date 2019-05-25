@@ -6,6 +6,7 @@ import Team from '@/components/Team'
 import TopTeamStats from '@/components/TopTeamStats'
 import Login from '@/components/Login'
 import NotFound from '@/components/NotFound'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -20,7 +21,7 @@ const router = new Router({
     {
       path: '/team/:team',
       name: 'team',
-      component: Team
+      component: Team,
     },
     {
       path: '/index',
@@ -42,6 +43,16 @@ const router = new Router({
       path: '/not-found',
       name: 'not-found',
       component: NotFound
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
+    },
+    {
+      path: '/',
+      name: 'index',
+      component: Index,
     },
     {
       path: '*',

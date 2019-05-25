@@ -3,9 +3,9 @@
 
 <div class="navbar">
     <router-link :to="{path: '/index'}">
-  <li class="toolbarItem">Home</li>
+  <li class="toolbarItem goLeft">Home</li>
 </router-link>
-<li class="toolbarItem">
+<li class="toolbarItem goLeft">
   <div class="dropdown">
     <button class="dropbtn">Teams
       <i class="fa fa-caret-down"></i>
@@ -83,16 +83,16 @@
 
 </li>
 <router-link :to="{path: '/stats/teams'}">
-<li class="toolbarItem">Team Stats</li>
+<li class="toolbarItem goLeft">Team Stats</li>
 </router-link>
 <router-link :to="{path: '/register'}">
-  <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Register</li>
+  <li class="toolbarItem goRight" v-if="!$store.state.isUserLoggedIn">Register</li>
 </router-link>
 <router-link :to="{path: '/login'}">
-  <li class="toolbarItem" v-if="!$store.state.isUserLoggedIn">Log In</li>
+  <li class="toolbarItem goRight" v-if="!$store.state.isUserLoggedIn">Log In</li>
   </router-link>
-  <router-link @click.native="logout" to="/logout">
-<li class="toolbarItem" v-if="$store.state.isUserLoggedIn">Log Out</li>
+  <router-link :to="{path: '/profile'}">
+<li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Profile</li>
 </router-link>
 </div>
 

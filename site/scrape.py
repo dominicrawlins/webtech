@@ -88,7 +88,7 @@ nameDictionary = {
    'crystalpalace': 'Crystal Palace',
    'bournemouth': 'Bournemouth',
    'burnley': 'Burnley',
-   'newcastleutd': 'Newcaslte United',
+   'newcastleutd': 'Newcastle United',
    'brighton': 'Brighton and Hove Albion',
    'southampton': 'Southampton',
    'cardiffcity': 'Cardiff City',

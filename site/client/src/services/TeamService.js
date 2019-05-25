@@ -15,10 +15,10 @@ export default {
     const url = '/' + team + '/stats'
     return Api().get(url)
   },
-  getSortedTeams(sort, columns){
+  getSortedTeams(sort, columns, order){
     let url = '/stats/teams'
     if(sort){
-      url += '?sort=' + sort
+      url += '?sort=' + sort + "+" + order
     }
     if(columns){
       for(let i = 0; i < columns.length; i++){

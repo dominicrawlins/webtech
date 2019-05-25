@@ -3,7 +3,8 @@ export default {
   name: 'indiTopStats',
   props: {
     stat: String,
-    columns: Array
+    columns: Array,
+    order: String
   },
   data(){
     return{
@@ -28,7 +29,7 @@ export default {
   },
   methods: {
     async fetchData(){
-      this.teamStats = (await TeamService.getSortedTeams(this.stat, this.columns)).data
+      this.teamStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data
       console.log(typeof this.teamStats)
     },
     columnsDictionary(){
