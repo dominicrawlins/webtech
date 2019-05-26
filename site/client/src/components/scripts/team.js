@@ -52,6 +52,8 @@ export default {
   },
   methods: {
     async fetchData(team){
+      this.widths = []
+      this.labels = []
       this.urlLoaded = false
       this.players = (await TeamService.getPlayers(team)).data
       this.teamAttributes = (await TeamService.getTeamStats(team)).data

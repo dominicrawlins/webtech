@@ -8,11 +8,12 @@ export default {
   props: {
     stat: String,
     columns: Array,
-    order: String
+    order: String,
+    table: String
   },
   data(){
     return{
-      teamStats: '',
+      allStats: '',
       namedColumns: [],
       dict: {
         goalsFor: "Goals Scored",
@@ -22,7 +23,7 @@ export default {
       },
       namedColumnsShort: [],
       teamStatsShort: [],
-      table: true,
+      showTable: true,
       heights: [],
       maxLength: 200,
       labels: [],
@@ -40,13 +41,17 @@ export default {
   },
   methods: {
     async fetchData(){
-      this.teamStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data
+      if(this.table === 'players'){
+        this.allStats = (await TeamService.getAllPlayers(this.stat, this.columns, this.order, 10)).data
+      }
+      else if(this.table === 'teams'){
+        this.allStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data
+      }
       for(let i = 0; i < 5; i++){
         this.heights.push(this.teamStats[i][this.stat])
         this.labels.push(this.teamStats[i]['name'])
         this.teamStatsShort.push(this.teamStats[i])
         this.namedColumnsShort.push(this.namedColumns[i])
-
       }
       console.log(this.heights)
     },
@@ -57,7 +62,7 @@ export default {
       console.log
     },
     switchTable(){
-      this.table = !this.table
+      this.showTable = !this.showTable
     },
     changeShownStats(size) {
       var prevLen = this.teamStatsShort.length
@@ -71,6 +76,7 @@ export default {
         this.heights.push(this.teamStats[i][this.stat])
         this.labels.push(this.teamStats[i]['name'])
       }
+
     }
   }
 }

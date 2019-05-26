@@ -7,7 +7,7 @@ const sql = require('sqlite3');
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
-const app= express();
+const app= require('express')();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
@@ -45,22 +45,12 @@ console.log("created users table");
 db.close();
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
-
 const keyPath = path.join(__dirname, 'key.pem')
 const certPath = path.join(__dirname, 'cert.pem')
-/*https.createServer({key: fs.readFileSync(keyPath, 'utf8'),
-                    cert: fs.readFileSync(certPath, 'utf8'),
-                    passphrase: 'pass',
-                    requestCert: false,
-                    rejectUnauthorized: false}, app).listen(8080);
-                    https.createServer({
-                        key: fs.readFileSync(certPath),
-                        cert: fs.readFileSync(keyPath),
-                        passphrase: 'dominic'
+https.createServer({key: fs.readFileSync(keyPath),
+                    cert: fs.readFileSync(certPath),
+                    passphrase: 'dominic'
                     }, app)
-                    .listen(3000);*/
-app.listen(8080)
+                    .listen(3000);
+http.createServer(app).listen(8080)
 console.log("running on port:"+config.port)

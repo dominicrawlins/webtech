@@ -9,10 +9,12 @@ module.exports = (app) => {
   app.post('/login',AuthenticationController.login)
 
   app.get('/stats/teams', QueryController.getTeamStats)
+  app.get('/stats/players', QueryController.getPlayerStats)
 
   app.get('/:team/players', QueryController.getTeamsPlayers)
 
   app.get('/:team/stats', QueryController.getTeam)
+
 
   app.get('/', QueryController.index)
 

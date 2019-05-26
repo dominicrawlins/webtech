@@ -7,13 +7,13 @@ export default {
   },
     data () {
     return{
-      stat: "goalsAgainst",
-      columns: ["name", "goalsFor", "goalsAgainst"],
+      stat: "goals",
+      columns: ["name", "goals"],
       order: "desc",
-      secondstat: "wins",
-      secondcolumns: ["name", "wins"],
+      secondstat: "assists",
+      secondcolumns: ["name", "assists"],
       secondorder: "desc",
-      table: "teams"
+      table: "players"
     }
 
   },

@@ -34,6 +34,31 @@ module.exports = {
       })
     }
   },
+  async getPlayerStats(req, res){
+    try{
+      let indexQuery = 'SELECT * '
+      const columns = req.query.columns
+      if(columns){
+        indexQuery = addColumns(columns)
+      }
+      indexQuery = addTable(indexQuery, "players")
+      const sortby = req.query.sort
+      if(sortby){
+        indexQuery = addSortQuery(indexQuery, sortby, req.query.order)
+      }
+      const topNumber = req.query.top
+      if(topNumber){
+        indexQuery = indexQuery += ' LIMIT ' + topNumber
+      }
+      console.log(indexQuery)
+      sqlQuery(req, res, indexQuery, [])
+    }catch (err) {
+      console.log(err)
+      res.status(500).send({
+        error: 'error returning top stats'
+      })
+    }
+  },
   async index (req, res){
     let indexQuery = 'SELECT * FROM teams'
     sqlQuery(req, res, indexQuery, [])
@@ -56,7 +81,6 @@ function addSortQuery(query, sortBy, order){
 }
 
 function addColumns(columns){
-  console.log(typeof columns)
   query = "SELECT "
   if(typeof columns === 'string'){
     query += columns + " "
