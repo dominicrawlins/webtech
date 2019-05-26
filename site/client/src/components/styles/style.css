@@ -190,7 +190,7 @@ svg:hover .top-pic {
 }
 
 .log-box {
-  height: 285px;
+  height: 350px;
   width: 35%;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
@@ -248,4 +248,17 @@ svg:hover .top-pic {
 .loginError{
   color: red;
   padding-top: 10px
+}
+
+.inlineRegister{
+  display: inline;
+}
+.tickorcross{
+  float: left;
+  display: inline;
+  left:60px;
+  position: absolute;
+}
+.inputCheck{
+  font-size: 12px;
 }
