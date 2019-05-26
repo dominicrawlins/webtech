@@ -33,8 +33,6 @@ module.exports = {
           //resolve({ id: this.lastID })
         }
       })
-
-      res.send("woo")
       db.close()
     } catch(err){
       res.status(400).send({
