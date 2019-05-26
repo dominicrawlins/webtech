@@ -13,20 +13,20 @@
           type="email"
           name="email"
           v-model="email"
-          placeholder="email" />
+          placeholder="email"  @keyup.enter="login()"/>
           <br>
           <input
           type="password"
           name="password"
           v-model="password"
-          placeholder="password" />
+          placeholder="password" @keyup.enter="login()" />
           <br>
-
-           <br>
+          <br>
            <button
            @click="login">
            Login
          </button>
+         <div class="loginError"> {{error}}</div>
         </div>
       </div>
       </div>

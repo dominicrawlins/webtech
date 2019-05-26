@@ -11,6 +11,23 @@ export default {
     return Api().get(url)
   },
 
+  getAllPlayers(sort, columns, order, number){
+    let url = '/stats/players'
+    if(sort){
+      url += '?sort=' + sort + "+" + order
+    }
+    if(columns){
+      for(let i = 0; i < columns.length; i++){
+        url += '&columns=' + columns[i]
+      }
+    }
+    if(number){
+      url += '&top=' + number
+    }
+    console.log(url)
+    return Api().get(url)
+  },
+
   getTeamStats(team) {
     const url = '/' + team + '/stats'
     return Api().get(url)

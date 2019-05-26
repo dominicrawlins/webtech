@@ -7,6 +7,7 @@ import TopTeamStats from '@/components/TopTeamStats'
 import Login from '@/components/Login'
 import NotFound from '@/components/NotFound'
 import Profile from '@/components/Profile'
+import TopPlayerStats from '@/components/TopPlayerStats'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ const router = new Router({
       path:'/stats/teams',
       name: 'topTeamStats',
       component: TopTeamStats
+    },
+    {
+      path: '/stats/players',
+      name: 'topPlayerStats',
+      component: TopPlayerStats
     },
     {
       path: '/login',
