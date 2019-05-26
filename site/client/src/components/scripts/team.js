@@ -1,9 +1,11 @@
 import TeamService from '@/services/TeamService'
 import {mapState} from 'vuex'
 import { Timeline} from 'vue-tweet-embed'
+import BarChart from '@/components/BarChart'
 export default {
   components: {
-    Timeline
+    Timeline,
+    BarChart
   },
   data () {
     return{
@@ -13,6 +15,10 @@ export default {
       // topPlayers: [],
       // no_of_goals: [],
       hi :'',
+      width: '200px',
+      widths: [],
+      maxLength: 200,
+      labels: []
     }
 
   },
@@ -51,6 +57,10 @@ export default {
       this.teamAttributes = (await TeamService.getTeamStats(team)).data
       console.log("team atts: " + this.teamAttributes)
       console.log("player atts: "+ this.players)
+      for(let i = 0; i < 5; i++){
+        this.widths.push(this.players[i]['goals'])
+        this.labels.push(this.players[i]['name'])
+      }
       this.urlLoaded = true
     },
     getImageUrl(pic){

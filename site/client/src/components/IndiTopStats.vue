@@ -1,5 +1,9 @@
 <template>
   <div>
+    <button v-on:click="switchTable" class="switchButton">Visualize</button>
+    <br>
+    <div v-if="table">
+
     <table id="teamGoalsScoredTable">
       <thead>
         <tr>
@@ -13,6 +17,10 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div v-if="!table">
+    <barChart :widths="heights" :maxLength="maxLength" :labels="labels" />
+  </div>
     </div>
 </template>
 

@@ -26,7 +26,7 @@
           </tr>
         </tbody>
       </table>
-      <h1>{{getTopPlayers(players)}}</h1>
+      <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
     </div>
 </template>
 
