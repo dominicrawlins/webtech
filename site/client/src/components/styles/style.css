@@ -167,3 +167,43 @@ svg:hover .top-pic {
   background: #F8F8F8;
   transition: all 0.9s;
 }
+
+#bar{
+  background-color:grey;
+  height:20px;
+  width: 20px;
+  display: block;
+  margin-left: 150px;
+}
+
+.grow-enter-active {
+  animation: grow-in 1s linear;
+}
+.grow-leave-active {
+  animation: grow-in 1s linear reverse;
+}
+@keyframes grow-in {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.barText{
+  float:left;
+  position: absolute;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.barLabel{
+  position: relative;
+}
+.switchButton{
+  float:left;
+  display: block;
+  padding: 2px;
+}
