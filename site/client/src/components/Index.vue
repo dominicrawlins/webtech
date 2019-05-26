@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="content-table recentView right">Recently Viewed Teams
+    <div v-for="recentTeam in lastVisited">
+      <img :src="getImageUrl(recentTeam)" width=40 height=40>
+    </div>
+    </div>
     <svg width="379" height="204" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
      <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
      <defs>
@@ -67,10 +72,6 @@
       </table>
       <img src="../assets/footballstatsco.svg">
 
-
-      <div v-for="recentTeam in lastVisited">
-        {{recentTeam}}
-      </div>
 
   <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"> -->
    <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->

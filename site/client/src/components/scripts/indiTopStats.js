@@ -19,12 +19,14 @@ export default {
         goalsFor: "Goals Scored",
         name: "Name",
         goalsAgainst: "Goals Conceded",
-        wins: "Wins"
+        wins: "Wins",
       },
+      namedColumnsShort: [],
+      teamStatsShort: [],
       showTable: true,
       heights: [],
       maxLength: 200,
-      labels: []
+      labels: [],
     }
   },
   async mounted() {
@@ -45,10 +47,11 @@ export default {
       else if(this.table === 'teams'){
         this.allStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data
       }
-
-      for(let i = 0; i < this.allStats.length; i++){
-        this.heights.push(this.allStats[i][this.stat])
-        this.labels.push(this.allStats[i]['name'])
+      for(let i = 0; i < 5; i++){
+        this.heights.push(this.teamStats[i][this.stat])
+        this.labels.push(this.teamStats[i]['name'])
+        this.teamStatsShort.push(this.teamStats[i])
+        this.namedColumnsShort.push(this.namedColumns[i])
       }
       console.log(this.heights)
     },
@@ -60,6 +63,20 @@ export default {
     },
     switchTable(){
       this.showTable = !this.showTable
+    },
+    changeShownStats(size) {
+      var prevLen = this.teamStatsShort.length
+      this.teamStatsShort = []
+      //this.namedColumnsShort = []
+      this.heights = []
+      this.labels = []
+      for(var i = 0; i < size+prevLen && size<20; i++ ) {
+        this.teamStatsShort.push(this.teamStats[i])
+        //this.namedColumnsShort.push(this.namedColumns[i])
+        this.heights.push(this.teamStats[i][this.stat])
+        this.labels.push(this.teamStats[i]['name'])
+      }
+
     }
   }
 }
