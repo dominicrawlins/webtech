@@ -2,7 +2,7 @@
   <div>
     <button v-on:click="switchTable" class="switchButton">Visualize</button>
     <br>
-    <div v-if="table">
+    <div v-if="showTable">
 
     <table id="teamGoalsScoredTable">
       <thead>
@@ -11,14 +11,14 @@
 
         </tr>
       </thead>
-      <tbody v-for="teamStat in teamStats">
+      <tbody v-for="thisStat in allStats">
         <tr>
-          <td  v-for="(value, propertyName) in teamStat">{{value}}</td>
+          <td  v-for="(value, propertyName) in thisStat">{{value}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div v-if="!table">
+  <div v-if="!showTable">
     <barChart :widths="heights" :maxLength="maxLength" :labels="labels" />
   </div>
     </div>

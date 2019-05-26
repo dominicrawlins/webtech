@@ -12,7 +12,8 @@ export default {
       order: "desc",
       secondstat: "wins",
       secondcolumns: ["name", "wins"],
-      secondorder: "desc"
+      secondorder: "desc",
+      table: "teams"
     }
 
   },

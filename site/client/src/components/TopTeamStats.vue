@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>This is where the top stats will go.</p>
-    <indiTopStats :stat= "stat" :columns="columns":order="order" ></indiTopStats>
-    <indiTopStats :stat= "secondstat" :columns="secondcolumns":order="secondorder" ></indiTopStats>
+    <indiTopStats :stat= "stat" :columns="columns":order="order" :table="table"></indiTopStats>
+    <indiTopStats :stat= "secondstat" :columns="secondcolumns":order="secondorder" :table="table"></indiTopStats>
     </div>
 </template>
 
