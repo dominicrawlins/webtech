@@ -2,7 +2,7 @@
   <div>
     <p>This is where the top stats will go.</p>
     <indiTopStats :stat= "stat" :columns="columns":order="order" ></indiTopStats>
-    <barChart :widths="heights" :maxLength="maxLength" />
+    <indiTopStats :stat= "secondstat" :columns="secondcolumns":order="secondorder" ></indiTopStats>
     </div>
 </template>
 
