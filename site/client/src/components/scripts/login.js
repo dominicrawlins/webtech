@@ -20,6 +20,9 @@ export default {
 
       }catch(err){
         this.error = err.response.data.error
+        this.email = null
+        this.password = null
+        console.log(this.error)
       }
     }
 

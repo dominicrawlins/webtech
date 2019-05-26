@@ -190,7 +190,7 @@ svg:hover .top-pic {
 }
 
 .log-box {
-  height: 250px;
+  height: 285px;
   width: 35%;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
@@ -244,4 +244,8 @@ svg:hover .top-pic {
   display: block;
   padding: 2px;
 
+}
+.loginError{
+  color: red;
+  padding-top: 10px
 }

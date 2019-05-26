@@ -67,12 +67,19 @@ module.exports = {
         } else {
           bcrypt.compare(req.body.password, rows[0].password, (err, isMatch) => {
             if(err){
-              console.error(err.message)
+              res.status(403).send({
+                error: 'Error'
+              })
             }
-            if(isMatch){
+            else if(isMatch){
               res.send({
                 token: jwtSignUser(rows[0])
 
+              })
+            }
+            else{
+              res.status(403).send({
+                error: 'Password incorrect'
               })
             }
           })
