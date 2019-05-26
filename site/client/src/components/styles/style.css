@@ -38,6 +38,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .navbar .toolbarItem.goLeft{
@@ -60,6 +61,7 @@
   border: none;
   outline: none;
   color: lime;
+  font-weight: bold;
 
   background-color: inherit;
 }
@@ -85,15 +87,20 @@
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 12px 16px;
+  padding: 15px 15px;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: center;
+  height: 50;
+  width: 150px;
+
 }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #eee;
+  height: 50;
+  width: 150px;
 }
 
 /* Show the dropdown menu on hover */
@@ -150,7 +157,6 @@ svg:hover .top-pic {
 .content-table thead tr {
   background-color: indigo;
   color: white;
-  text-align: left;
   font-weight: bold;
 }
 
@@ -160,10 +166,41 @@ svg:hover .top-pic {
 }
 
 .content-table tbody tr{
-  border-bottom: 1px solid indigo;
+  /* border-bottom: 1px solid indigo; */
 }
 
 .content-table tr:hover td{
   background: #F8F8F8;
   transition: all 0.9s;
+}
+
+.bgcol {
+  opacity: 0.3;
+}
+
+.teamName {
+  text-decoration:none;
+  font-weight:bold;
+  color:  inherit;
+}
+
+.pad {
+  padding-right: 50px;
+  align: center;
+}
+
+.log-box {
+  height: 250px;
+  width: 35%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  position:absolute;
+  margin: auto;
+}
+
+.center {
+  margin: auto;
+  width: 33%;
+  padding: 10px;
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-      <svg width="379" height="204" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="379" height="204" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
      <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
      <defs>
       <symbol viewBox="0 0 500 210.58957" id="svg_21" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
      </g>
     </svg>
     <h1>Premier League Statistics for the 2018/19 season</h1>
-
+    <h2>Click on the Team name to see team stats</h2>
        <table id="teamStatsTable" class="content-table" align="center">
         <thead>
           <tr>
@@ -50,9 +50,9 @@
           </tr>
         </thead>
         <tbody v-for="team in teams">
-          <tr class="active-row">
-            <td><img :src="getImageUrl(team.id)" height="40"></td>
-            <router-link :to="{name:'team', params:{team: team.id}}">
+          <tr>
+            <td><img :src="getImageUrl(team.id)" width="40" height="40"></td>
+            <router-link :to="{name:'team', params:{team: team.id}}" class="teamName">
               <td>{{team.name}}</td>
             </router-link>
             <td>{{team.gamesPlayed}}</td>
@@ -68,11 +68,8 @@
       <img src="../assets/footballstatsco.svg">
 
 
-
       <div v-for="recentTeam in lastVisited">
-        <router-link :to="{name:'team', params:{team: recentTeam}}">
         {{recentTeam}}
-      </router-link>
       </div>
 
   <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"> -->
@@ -104,12 +101,6 @@
     <line fill="none" id="svg_120" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" x1="211.5" x2="206.5" y1="180.5" y2="132.5"/>
    <!-- </g> -->
   <!-- </svg> -->
-  <bars
-:data="[1, 2, 5, 9, 5, 10, 3, 5, 8, 12, 1, 8, 2, 9, 10, 2, 9, 4, 5, 6, 7, 3, 2, 3, 5]"
-:gradient="['#ffbe88', '#ff93df']"
-:barWidth="5"
-:growDuration="1">
-</bars>
     </div>
 </template>
 

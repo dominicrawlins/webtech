@@ -13,7 +13,6 @@ export default {
       // topPlayers: [],
       // no_of_goals: [],
       hi :'',
-      width: '200px',
     }
 
   },

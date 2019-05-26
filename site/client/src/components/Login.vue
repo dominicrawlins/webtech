@@ -1,6 +1,13 @@
 <template>
-      <div>
-          <p>Login</p>
+  <div class="center">
+        <div class="log-box">
+          <h1>Login</h1>
+          <p>Please enter your login details below.
+          No Log In Account?
+          <router-link :to="{path: '/register'}" class=teamName>
+          Register here
+          </router-link>
+          </p>
         <div>
           <input
           type="email"
@@ -21,6 +28,7 @@
            Login
          </button>
         </div>
+      </div>
       </div>
 
 </template>

@@ -2,7 +2,8 @@ import TeamService from '@/services/TeamService'
 export default {
   data () {
     return{
-      teams: ''
+      teams: '',
+      selectedTeam: ''
     }
 
   },
