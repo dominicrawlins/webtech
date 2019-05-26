@@ -23,20 +23,20 @@
 .navbar {
   list-style-type: none;
   overflow: hidden;
-  background-color: indigo;
+  background-color: rgba(75,0,130,0.8);
   top: 0px;
   width: 100%;
   position: absolute;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 
 /* Links inside the navbar */
 .navbar .toolbarItem {
 
-  font-size: 16px;
-  color: lime;
+  font-size: 18px;
+  color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 12px 10px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -53,14 +53,15 @@
   float: left;
   overflow: hidden;
   display: block;
+  position: relative;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   outline: none;
-  color: lime;
+  color: white;
   font-weight: bold;
 
   background-color: inherit;
@@ -69,6 +70,9 @@
 /* Add a red background color to navbar links on hover */
 .toolbarItem:hover, .dropdown:hover .dropbtn {
   background-color: white;
+  padding: 14px 12px;
+  color: lime;
+  transition: 0.5s;
 }
 
 /* Dropdown content (hidden by default) */
@@ -107,6 +111,7 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 .column {
   float: left;
   width: 33.33%;
@@ -155,7 +160,7 @@ svg:hover .top-pic {
 }
 
 .content-table thead tr {
-  background-color: indigo;
+  background-color: rgba(75,0,130,0.8);
   color: white;
   font-weight: bold;
 }
@@ -243,5 +248,24 @@ svg:hover .top-pic {
   float:left;
   display: block;
   padding: 2px;
+}
 
+.fixedTable {
+  width:900px;
+  table-layout: fixed;
+}
+
+.recentView {
+  width: 300px;
+}
+
+.center {
+  margin:auto;
+  width: 30%;
+  padding: 20px;
+
+}
+
+.left {
+  float: left;
 }

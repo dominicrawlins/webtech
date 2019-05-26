@@ -1,13 +1,17 @@
 <template>
   <div>
     <div>
-    <div v-if="urlLoaded">
+    <div v-if="urlLoaded"  style="padding bottom 20px;">
     <h1>{{teamAttributes[0].name}}</h1>
     </div>
     <img :src="getImageUrl(teamAttributes[0].id)" width=200 height=200 align="center">
+    <br />
   </div>
+  <br />
+  <br />
+  <div>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
-      <table id="teamStatsTable" class="content-table" :style="{'background-color': teamAttributes[0].primaryColours}">
+      <table id="teamStatsTable" class="content-table left" :style="{'background-color': teamAttributes[0].primaryColours}">
         <thead>
           <tr>
             <th>Player</th>
@@ -26,7 +30,19 @@
           </tr>
         </tbody>
       </table>
-      <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
+    </div>
+    <div class="center">
+    <div class="content-table">
+      <h3>Goals Scored</h3>
+        <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
+      </div>
+      <br />
+      <br />
+      <div class="content-table">
+        <h3>Assists Made</h3>
+        <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
+      </div>
+    </div>
     </div>
 </template>
 

@@ -9,7 +9,8 @@ export default {
   data(){
     return{
       pixelWidths : [],
-      show : false
+      show : false,
+      teams: ''
     }
 
   },
@@ -25,8 +26,9 @@ export default {
       this.pixelWidths = tempPixelWeights
     }
   },
-  mounted(){
+  async mounted(){
     this.calculatePixelWidths()
     this.show = true
+    this.teams = (await TeamService.getTeams()).data
   }
 }
