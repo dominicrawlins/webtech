@@ -16,7 +16,7 @@ export default {
           password: this.password
         })
         this.$store.dispatch('setToken',response.data.token)
-        this.$router.push('root')
+        this.$router.push('index')
 
       }catch(err){
         this.error = err.response.data.error

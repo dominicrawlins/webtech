@@ -94,6 +94,7 @@
   <router-link :to="{path: '/profile'}">
 <li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Profile</li>
 </router-link>
+<!-- <li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn"><img src="../assets/wolverhampton.png" align = center height=25 width=25></li> -->
 </div>
 
 

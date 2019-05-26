@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="center">
+        <div class="log-box">
     <h1>
       Register
     </h1>
+    <p>Please enter your email address and choose a password to register</p>
 
 
     <input
@@ -23,6 +25,7 @@
     @click="register">
     Register
   </button>
+</div>
 </div>
 </template>
 
