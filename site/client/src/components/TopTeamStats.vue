@@ -5,11 +5,11 @@
     <div>
       <div >
         <h4>Goals Conceded:</h4>
-        <indiTopStats :stat= "stat" :columns="columns":order="order"></indiTopStats>
+        <indiTopStats :stat= "stat" :columns="columns":order="order" :table="table"></indiTopStats>
       </div>
       <div>
         <h4>Wins:</h4>
-        <indiTopStats :stat= "secondstat" :columns="secondcolumns":order="secondorder" ></indiTopStats>
+        <indiTopStats :stat= "secondstat" :columns="secondcolumns":order="secondorder" :table="table"></indiTopStats>
       </div>
     </div>
     </div>

@@ -20,6 +20,8 @@ export default {
         name: "Name",
         goalsAgainst: "Goals Conceded",
         wins: "Wins",
+        goals: "Goals",
+        assists: "Assists"
       },
       namedColumnsShort: [],
       teamStatsShort: [],
@@ -48,12 +50,16 @@ export default {
         this.allStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data
       }
       for(let i = 0; i < 5; i++){
-        this.heights.push(this.teamStats[i][this.stat])
-        this.labels.push(this.teamStats[i]['name'])
-        this.teamStatsShort.push(this.teamStats[i])
-        this.namedColumnsShort.push(this.namedColumns[i])
+        this.heights.push(this.allStats[i][this.stat])
+        this.labels.push(this.allStats[i]['name'])
+        this.teamStatsShort.push(this.allStats[i])
+        if(this.namedColumns[i]){
+          this.namedColumnsShort.push(this.namedColumns[i])
+        }
+
+
       }
-      console.log(this.heights)
+      console.log(this.namedColumnsShort)
     },
     columnsDictionary(){
       for(let i = 0; i < this.columns.length; i++){
@@ -70,11 +76,11 @@ export default {
       //this.namedColumnsShort = []
       this.heights = []
       this.labels = []
-      for(var i = 0; i < size+prevLen && size<20; i++ ) {
-        this.teamStatsShort.push(this.teamStats[i])
+      for(var i = 0; i < size+prevLen && i<this.allStats.length; i++ ) {
+        this.teamStatsShort.push(this.allStats[i])
         //this.namedColumnsShort.push(this.namedColumns[i])
-        this.heights.push(this.teamStats[i][this.stat])
-        this.labels.push(this.teamStats[i]['name'])
+        this.heights.push(this.allStats[i][this.stat])
+        this.labels.push(this.allStats[i]['name'])
       }
 
     }

@@ -8,7 +8,7 @@ export default {
     data () {
     return{
       stat: "goalsAgainst",
-      columns: ["name", "goalsFor", "goalsAgainst"],
+      columns: ["name","goalsAgainst"],
       order: "desc",
       secondstat: "wins",
       secondcolumns: ["name", "wins"],

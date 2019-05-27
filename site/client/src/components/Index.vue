@@ -2,7 +2,9 @@
   <div>
     <div class="content-table recentView right">Recently Viewed Teams
     <div v-for="recentTeam in lastVisited">
+      <router-link :to="{name:'team', params:{team: recentTeam}}">
       <img :src="getImageUrl(recentTeam)" width=40 height=40>
+    </router-link>
     </div>
     </div>
     <svg width="379" height="204" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

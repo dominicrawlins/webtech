@@ -4,14 +4,14 @@
     <div v-if="urlLoaded"  style="padding bottom 20px;">
     <h1>{{teamAttributes[0].name}}</h1>
     </div>
-    <img :src="getImageUrl(teamAttributes[0].id)" width=200 height=200 align="center">
+    <img :src="getImageUrl(teamAttributes[0].id)" width=200 height=200 align="center" v-if="urlLoaded">
     <br />
   </div>
   <br />
   <br />
   <div>
     <Timeline v-if="urlLoaded" class="twitterFeed" v-bind:id="teamAttributes[0].twitterURL" :sourceType="'profile'"/>
-      <table id="teamStatsTable" class="content-table left" :style="{'background-color': teamAttributes[0].primaryColours}">
+      <table id="teamStatsTable" class="content-table left" :style="{'background-color': teamAttributes[0].primaryColours}" v-if="urlLoaded">
         <thead>
           <tr>
             <th>Player</th>

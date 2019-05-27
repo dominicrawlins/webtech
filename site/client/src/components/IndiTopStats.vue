@@ -1,8 +1,8 @@
 <template>
   <div>
     <button v-on:click="switchTable" class="switchButton">Toggle Visualisation</button>
-    <button  v-on:click="changeShownStats(5)"  v-if="table">Add Teams</button>
-    <button v-on:click="changeShownStats(-5)"  v-if="table"> Remove Teams</button>
+    <button  v-on:click="changeShownStats(1)"  v-if="showTable">Add</button>
+    <button v-on:click="changeShownStats(-1)"  v-if="showTable"> Remove</button>
     <br>
     <div v-if="showTable">
     <table id="teamGoalsScoredTable" align="center" class="content-table fixedTable">
@@ -14,7 +14,7 @@
 
       <tbody v-for="teamStat in teamStatsShort">
         <tr>
-          <td  v-for="(value, propertyName) in thisStat">{{value}}</td>
+          <td  v-for="(value, propertyName) in teamStat">{{value}}</td>
         </tr>
       </tbody>
     </table>
