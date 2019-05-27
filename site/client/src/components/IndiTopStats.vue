@@ -21,7 +21,7 @@
 
   </div>
   <div v-if="!showTable">
-    <barChart :widths="heights" :maxLength="maxLength" :labels="labels" />
+    <barChart :widths="heights" :maxLength="maxLength" :labels="labels" :teams="teams"/>
   </div>
     </div>
 </template>

@@ -8,10 +8,10 @@ export default {
     data () {
     return{
       stat: "goals",
-      columns: ["name", "goals"],
+      columns: ["name", "goals", "team"],
       order: "desc",
       secondstat: "assists",
-      secondcolumns: ["name", "assists"],
+      secondcolumns: ["name", "assists", "team"],
       secondorder: "desc",
       table: "players"
     }
