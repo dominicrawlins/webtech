@@ -90,7 +90,7 @@ export default {
   methods: {
     async fetchData(){
       if(this.table === 'players'){
-        this.allStats = (await TeamService.getAllPlayers(this.stat, this.columns, this.order, 10)).data
+        this.allStats = (await TeamService.getAllPlayers(this.stat, this.columns, this.order, 100)).data
       }
       else if(this.table === 'teams'){
         this.allStats = (await TeamService.getSortedTeams(this.stat, this.columns, this.order)).data

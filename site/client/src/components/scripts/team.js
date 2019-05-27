@@ -77,13 +77,13 @@ export default {
               lastVisited.splice(i, 1)
             }
           }
-          lastVisited.push(team)
+          lastVisited.unshift(team)
         }
         else{
           if(lastVisited.length >= 10){
-            lastVisited.shift()
+            lastVisited.pop()
           }
-          lastVisited.push(team)
+          lastVisited.unshift(team)
         }
 
       }
