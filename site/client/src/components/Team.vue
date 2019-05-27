@@ -34,13 +34,13 @@
     <div class="center">
     <div class="content-table">
       <h3>Goals Scored</h3>
-        <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
+        <barChart :widths="goalwidths" :maxLength="maxLength" :labels="goallabels" v-if="urlLoaded" :teams="colours"/>
       </div>
       <br />
       <br />
       <div class="content-table">
         <h3>Assists Made</h3>
-        <barChart :widths="widths" :maxLength="maxLength" :labels="labels" v-if="urlLoaded"/>
+        <barChart :widths="assistwidths" :maxLength="maxLength" :labels="assistlabels" v-if="urlLoaded" :teams="colours"/>
       </div>
     </div>
     </div>

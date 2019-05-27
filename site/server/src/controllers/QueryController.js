@@ -36,22 +36,28 @@ module.exports = {
   },
   async getPlayerStats(req, res){
     try{
+      let params=[]
       let indexQuery = 'SELECT * '
       const columns = req.query.columns
       if(columns){
         indexQuery = addColumns(columns)
       }
       indexQuery = addTable(indexQuery, "players")
+      const team = req.query.team
+      if(team){
+        indexQuery += ' WHERE team = ? '
+        params.push(team)
+      }
       const sortby = req.query.sort
       if(sortby){
         indexQuery = addSortQuery(indexQuery, sortby, req.query.order)
       }
       const topNumber = req.query.top
       if(topNumber){
-        indexQuery = indexQuery += ' LIMIT ' + topNumber
+        indexQuery += ' LIMIT ' + topNumber
       }
       console.log(indexQuery)
-      sqlQuery(req, res, indexQuery, [])
+      sqlQuery(req, res, indexQuery, params)
     }catch (err) {
       console.log(err)
       res.status(500).send({

@@ -16,9 +16,13 @@ export default {
       // no_of_goals: [],
       hi :'',
       width: '200px',
-      widths: [],
+      goalwidths: [],
+      assistswidths: [],
       maxLength: 200,
-      labels: []
+      goallabels: [],
+      assistswidths: [],
+      colours: [],
+      assistNumbers: ''
     }
 
   },
@@ -59,9 +63,22 @@ export default {
       this.teamAttributes = (await TeamService.getTeamStats(team)).data
       console.log("team atts: " + this.teamAttributes)
       console.log("player atts: "+ this.players)
+      this.goalwidths = []
+      this.goallabels = []
+      this.colours = []
       for(let i = 0; i < 5; i++){
-        this.widths.push(this.players[i]['goals'])
-        this.labels.push(this.players[i]['name'])
+        this.goalwidths.push(this.players[i]['goals'])
+        this.goallabels.push(this.players[i]['name'])
+        this.colours.push(this.$route.params.team)
+      }
+      this.assistNumbers = (await TeamService.getAllPlayers('assists', ['name', 'assists'], 'desc', 5, team)).data
+      this.assistwidths = []
+      this.assistlabels = []
+      for(let i = 0; i < 5; i++){
+        if(this.assistNumbers[0]){
+          this.assistwidths.push(this.assistNumbers[i]['assists'])
+          this.assistlabels.push(this.assistNumbers[i]['name'])
+        }
       }
       this.urlLoaded = true
     },
