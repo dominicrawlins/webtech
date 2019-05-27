@@ -1,8 +1,11 @@
 <template>
   <div>
-    <button v-on:click="switchTable" class="switchButton">Toggle Visualisation</button>
-    <button  v-on:click="changeShownStats(1)"  v-if="showTable">Add</button>
-    <button v-on:click="changeShownStats(-1)"  v-if="showTable"> Remove</button>
+    <div class="center">
+      <button v-on:click="switchTable">Toggle Visualisation</button>
+      <button  v-on:click="changeShownStats(1)"  v-if="showTable">Add</button>
+      <button v-on:click="changeShownStats(-1)"  v-if="showTable"> Remove</button>
+    </div>
+
     <br>
     <div v-if="showTable">
     <table id="teamGoalsScoredTable" align="center" class="content-table fixedTable">

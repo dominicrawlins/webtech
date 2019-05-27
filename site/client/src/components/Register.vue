@@ -35,10 +35,12 @@
       <p class="inputCheck" v-bind:style="{color: numberColour}"> Password must contain a number</p>
       <div class="error" v-html="error" />
       <br>
+      <router-link :to="{path: '/index'}">
       <button
       @click="register" v-if="passwordCorrect & emailCorrect">
       Register
     </button>
+  </router-link>
   </div>
 </div>
 </template>

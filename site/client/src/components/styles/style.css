@@ -246,7 +246,6 @@ svg:hover .top-pic {
   position: relative;
 }
 .switchButton{
-  float:left;
   display: block;
   padding: 2px;
 }
@@ -257,7 +256,7 @@ svg:hover .top-pic {
 }
 
 .recentView {
-  width: 300px;
+  width: 200px;
 }
 
 .center {
