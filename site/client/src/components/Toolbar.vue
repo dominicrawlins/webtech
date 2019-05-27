@@ -93,7 +93,8 @@
       <li class="toolbarItem goRight" v-if="!$store.state.isUserLoggedIn">Log In</li>
     </router-link>
     <router-link :to="{path: '/profile'}">
-      <li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Profile</li>
+      <img src="../assets/icon.png" height=30px class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn"/>
+      <!--<li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn">Profile</li>-->
     </router-link>
     <!-- <li class="toolbarItem goRight" v-if="$store.state.isUserLoggedIn"><img src="../assets/wolverhampton.png" align = center height=25 width=25></li> -->
   </div>
